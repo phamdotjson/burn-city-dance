@@ -1,30 +1,62 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { FaLocationDot, FaCalendarDays, FaMoneyBillWave, FaCircleUser, FaTicket } from "react-icons/fa6";
+import { FaLocationDot, FaCalendarDays, FaMoneyBillWave, FaCircleUser, FaTicket, FaInstagram } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
 import { Button } from "./ui/button";
+import { EventTagsEnum, EventTypeEnum } from "@/constants/EventEnums";
+import dayjs from "dayjs";
+import { cn } from "@/lib/utils";
 
 export interface EventCardProps {
   eventName: string;
   organiser: string;
+  organiserContact: string;
   location: string;
+  dateTimeUtc: string;
+  eventTypes: EventTypeEnum[];
+  tags?: EventTagsEnum[];
+  pricingInfo: string;
+  image: string;
+  ticketLink?: string;
+}
+
+const renderFooterContent = ({ ticketLink, organiserContact }: EventCardProps) => {
+  if (ticketLink != undefined) {
+    return (
+      <CardFooter className="p-0 m-3">
+        <div className="flex items-center w-full gap-x-3">
+          <Button variant={"default"} className="w-full"><FaTicket className="mr-2 h-3.5 w-3.5" />Buy Tickets</Button>
+        </div>
+      </CardFooter>
+    )
+  } else {
+    return (
+      <CardFooter className="p-0 m-3">
+        <div className="flex items-center w-full gap-x-3">
+          <Button variant={"default"} className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"><FaInstagram className="mr-2 h-3.5 w-3.5" />Contact Organiser</Button>
+        </div>
+      </CardFooter>
+    )
+  }
 }
 
 const EventCard = (props: EventCardProps) => {
+  const eventDate = dayjs(props.dateTimeUtc);
+  const bgImageClass = `bg-[url('/${props.image}')]`
+
   return (
     <Card className="w-full">
-      <CardHeader className="p-0 m-3 rounded-lg border bg-[url('/waack.jpg')] bg-cover bg-center aspect-square shadow-inner border-ra">
+      <CardHeader className={cn("p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra", bgImageClass)}>
         <div className="flex justify-center items-center bg-white w-[3.5rem] aspect-square m-3 rounded-lg">
           <div className="text-center">
-            <p className="font-bold text-xl">14</p>
-            <p className="text-xs text-red-600 font-semibold">DEC</p>
+            <p className="font-bold text-xl">{eventDate.date()}</p>
+            <p className="text-xs text-red-600 font-semibold">{eventDate.format('MMM').toUpperCase()}</p>
           </div>
         </div>
       </CardHeader>
-      <Badge className="ml-3" variant={'eventType'}>Battle</Badge>
-      <Badge className="ml-3" variant={'eventStyle'}>Waacking</Badge>
+      {props.eventTypes.map(et => <Badge className="ml-3" variant={'eventType'}>{et}</Badge>)}
+      {props.tags && props.tags.map(t => <Badge className="ml-3" variant={'eventStyle'}>{t}</Badge>)}
       <CardContent className="flex flex-col p-0 m-3 gap-y-2">
-
         <CardTitle className="text-xl">{props.eventName}</CardTitle>
         <div className="flex">
           <FaLocationDot className="mr-2" />
@@ -32,13 +64,13 @@ const EventCard = (props: EventCardProps) => {
         </div>
         <div className="flex">
           <FaCalendarDays className="mr-2" />
-          <p className="text-sm font-medium">Saturday, December 14, 2024</p>
+          <p className="text-sm font-medium">{eventDate.format('dddd, MMMM D, YYYY')}</p>
           <LuDot />
-          <p className="text-sm font-medium">06:00 PM</p>
+          <p className="text-sm font-medium">{eventDate.format('h:mm A')}</p>
         </div>
         <div className="flex">
           <FaMoneyBillWave className="mr-2" />
-          <p className="text-sm font-medium">Spectators: $20 | Battlers: $30</p>
+          <p className="text-sm font-medium">{props.pricingInfo}</p>
         </div>
         <div className="flex">
           <FaCircleUser className="mr-2" />
@@ -52,11 +84,8 @@ const EventCard = (props: EventCardProps) => {
           <Button variant="outline" className="w-full" >View Details</Button>
         </div>
       </CardFooter>
-      <CardFooter className="p-0 m-3">
-        <div className="flex items-center w-full gap-x-3">
-          <Button variant={"default"} className="w-full"><FaTicket className="mr-2 h-3.5 w-3.5" />Buy Tickets</Button>
-        </div>
-      </CardFooter>
+      {renderFooterContent(props)}
+
     </Card>
   );
 }
