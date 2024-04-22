@@ -54,8 +54,8 @@ const EventCard = (props: EventCardProps) => {
           </div>
         </div>
       </CardHeader>
-      {props.eventTypes.map(et => <Badge className="ml-3" variant={'eventType'}>{et}</Badge>)}
       {props.tags && props.tags.map(t => <Badge className="ml-3" variant={'eventStyle'}>{t}</Badge>)}
+      {props.eventTypes.map(et => <Badge className="ml-3" variant={'eventType'}>{et}</Badge>)}
       <CardContent className="flex flex-col p-0 m-3 gap-y-2">
         <CardTitle className="text-xl">{props.eventName}</CardTitle>
         <div className="flex">
@@ -79,7 +79,7 @@ const EventCard = (props: EventCardProps) => {
         </div>
       </CardContent>
       <CardFooter className="p-0 m-3">
-        <div className="flex items-center w-full gap-x-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-3">
           <Button variant="outline" className="w-full"><FaCalendarDays className="mr-2 h-3.5 w-3.5" />Add To Calendar</Button>
           <Button variant="outline" className="w-full" >View Details</Button>
         </div>
