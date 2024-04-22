@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaLocationDot, FaCalendarDays, FaMoneyBillWave, FaCircleUser, FaTicket, FaInstagram } from "react-icons/fa6";
-import { LuDot } from "react-icons/lu";
 import { Button } from "./ui/button";
 import { EventTagsEnum, EventTypeEnum } from "@/constants/EventEnums";
 import dayjs from "dayjs";
@@ -64,9 +63,7 @@ const EventCard = (props: EventCardProps) => {
         </div>
         <div className="flex">
           <FaCalendarDays className="mr-2" />
-          <p className="text-sm font-medium">{eventDate.format('dddd, MMMM D, YYYY')}</p>
-          <LuDot />
-          <p className="text-sm font-medium">{eventDate.format('h:mm A')}</p>
+          <p className="text-sm font-medium">{eventDate.format('dddd, MMMM D, YYYY')}・{eventDate.format('h:mm A')}</p>
         </div>
         <div className="flex">
           <FaMoneyBillWave className="mr-2" />
