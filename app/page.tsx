@@ -109,7 +109,7 @@ const page = () => {
           <SearchBar />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 m-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 py-3">
           {events.map((e, index) => <EventCard key={index} {...e} />)}
         </div>
       </div>
