@@ -48,7 +48,7 @@ const EventCard = async (props: EventCardProps) => {
       <CardHeader className={"p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra"} style={{ backgroundImage: `url('${imageUrl}')` }}>
         < div className="flex justify-center items-center bg-white w-[3.5rem] aspect-square m-3 rounded-lg" >
           <div className="text-center">
-            <p className="font-bold text-xl">{eventDate.date()}</p>
+            <p className="font-bold text-xl text-black">{eventDate.date()}</p>
             <p className="text-xs text-red-600 font-semibold">{eventDate.format('MMM').toUpperCase()}</p>
           </div>
         </div >
