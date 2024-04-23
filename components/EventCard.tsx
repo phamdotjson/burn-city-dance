@@ -4,7 +4,7 @@ import { FaLocationDot, FaCalendarDays, FaMoneyBillWave, FaCircleUser, FaTicket,
 import { Button } from "./ui/button";
 import { EventTagsEnum, EventTypeEnum } from "@/constants/EventEnums";
 import dayjs from "dayjs";
-import { cn } from "@/lib/utils";
+import { getImageUrlFromS3Bucket } from "@/actions/s3";
 
 export interface EventCardProps {
   eventName: string;
@@ -39,13 +39,13 @@ const renderFooterContent = ({ ticketLink, organiserContact }: EventCardProps) =
   }
 }
 
-const EventCard = (props: EventCardProps) => {
+const EventCard = async (props: EventCardProps) => {
   const eventDate = dayjs(props.dateTimeUtc);
-  const bgImageClass = `bg-[url('/${props.image}')]`
+  const imageUrl = await getImageUrlFromS3Bucket(props.image);
 
   return (
     <Card className="w-full">
-      <CardHeader className={cn("p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra", bgImageClass)}>
+      <CardHeader className={"p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra"} style={{ backgroundImage: `url('${imageUrl}')` }}>
         <div className="flex justify-center items-center bg-white w-[3.5rem] aspect-square m-3 rounded-lg">
           <div className="text-center">
             <p className="font-bold text-xl">{eventDate.date()}</p>
