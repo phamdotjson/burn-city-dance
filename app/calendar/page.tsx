@@ -61,7 +61,7 @@ const page = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {events.map(e => <EventCard {...e} />)}
+        {events.map((e, index) => <EventCard key={index} {...e} />)}
       </div>
     </div>
   );
