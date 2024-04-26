@@ -123,10 +123,10 @@ export default function Example() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-6xl">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
               Become a part of Burncity&apos;s thriving street dance scene
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <p className="mt-6 text-md leading-8 text-gray-600 dark:text-gray-300">
               Help us preserve the street dance scene in Melbourne!
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
