@@ -41,7 +41,7 @@ const events: EventCardProps[] = [
   {
     eventName: "Boogaloo Workshop - Ahrin Tapat WOW!",
     organiser: "Ahrin Tapat",
-    location: "O2 Dance Studio",
+    location: "My Mansion",
     dateTimeUtc: "2024-05-14T07:00:00.000Z",
     eventTypes: [EventTypeEnum.Workshop],
     tags: [EventTagsEnum.Popping],

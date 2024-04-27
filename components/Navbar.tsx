@@ -5,20 +5,20 @@ import { Dialog } from '@headlessui/react'
 import { FaBars, FaXmark } from 'react-icons/fa6'
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'Home', href: '#' },
+  { name: 'About', href: '#' },
+  { name: 'FAQ', href: '#' },
+  { name: 'Contact', href: '#' },
 ]
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-cover bg-center blur-xl" style={{ backgroundImage: `url('./waack.jpg')` }}></div>
-      </div >
+    <div className="relative overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center blur-[2px]" style={{ backgroundImage: "url('./hero.jpg')" }}></div>
+      <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+      <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -50,7 +50,7 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
-              Log in <span aria-hidden="true">&rarr;</span>
+              Host an event <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -112,7 +112,7 @@ export default function Example() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 dark:text-gray-100 ring-1 ring-gray-900/10 dark:ring-gray-300/10 hover:ring-gray-900/20 ">
-              Announcing our next round of funding.{' '}
+              📢 Launch announcement!{' '}
               <a href="#" className="font-semibold text-indigo-600">
                 <span className="absolute inset-0" aria-hidden="true" />
                 Read more <span aria-hidden="true">&rarr;</span>
@@ -121,26 +121,25 @@ export default function Example() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
-              Become a part of Burncity&apos;s thriving street dance scene
+              Burncity Street Dance Events
             </h1>
             <p className="mt-6 text-md leading-8 text-gray-600 dark:text-gray-300">
-              Help us preserve the street dance scene in Melbourne!
+              The easiest way to find street dance events in Naarm. Find workshops, battles, buy tickets and host your own events 🙌
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-6 flex items-center justify-center gap-x-6">
               <a
                 href="#"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Get started
+                Find an event
               </a>
               <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
-                Learn more <span aria-hidden="true">→</span>
+                Host an event <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-
     </div >
   )
 }
