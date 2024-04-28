@@ -124,7 +124,7 @@ export default function Example() {
               Burncity Street Dance Events
             </h1>
             <p className="mt-6 text-md leading-8 text-gray-600 dark:text-gray-300">
-              The easiest way to find street dance events in Naarm. Find workshops, battles, buy tickets and host your own events 🙌
+              The easiest way to find street dance events in Naarm. Find events, add them to calendar, buy tickets and host your own events 🙌
             </p>
             <div className="mt-6 flex items-center justify-center gap-x-6">
               <a
