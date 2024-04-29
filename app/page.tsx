@@ -1,9 +1,10 @@
 import EventGrid from "@/components/EventGrid";
 import SearchBar from "@/components/SearchBar";
-import { getEvents } from "@/lib/utils";
+import { getConfirmedEvents } from "@/lib/db";
 
 const page = async () => {
-  const events = await getEvents();
+  const events = await getConfirmedEvents();
+
   return (
     <div className="dark:bg-black">
       <div className="container ">

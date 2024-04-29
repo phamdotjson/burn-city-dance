@@ -1,17 +1,19 @@
 import dayjs from "dayjs";
-import EventCard, { EventCardProps } from "./EventCard";
+import EventCard from "./EventCard";
+import { Event } from "@/types/Event";
+import { sortEventsByDateTime } from "@/lib/utils";
 
 export interface EventGridProps {
-  events: EventCardProps[];
+  events: Event[];
 };
 
 const EventGrid = ({ events }: EventGridProps) => {
 
-  events.sort((x, y) => dayjs(x.dateTimeUtc).unix() - dayjs(y.dateTimeUtc).unix());
+  const sortedEvents = sortEventsByDateTime(events);
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 py-3">
-      {events.map((e, index) => <EventCard key={index} {...e} />)}
+      {sortedEvents.map((e, index) => <EventCard key={index} {...e} />)}
     </div>
   );
 }

@@ -2,25 +2,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { FaLocationDot, FaCalendarDays, FaMoneyBillWave, FaCircleUser, FaTicket, FaInstagram } from "react-icons/fa6";
 import { Button } from "./ui/button";
-import { EventTagsEnum, EventTypeEnum } from "@/constants/EventEnums";
 import dayjs from "dayjs";
 import { getImageUrlFromS3Bucket } from "@/lib/utils";
+import { Event } from "@/types/Event";
 
-export interface EventCardProps {
-  eventName: string;
-  organiser: string;
-  organiserContact: string;
-  location: string;
-  dateTimeUtc: string;
-  eventTypes: EventTypeEnum[];
-  tags?: EventTagsEnum[];
-  pricingInfo: string;
-  image: string;
-  ticketLink?: string;
-}
-
-const renderFooterContent = ({ ticketLink, organiserContact }: EventCardProps) => {
-  if (ticketLink != undefined) {
+const renderFooterContent = ({ TicketLink, OrganiserContact }: Event) => {
+  if (TicketLink != undefined) {
     return (
       <CardFooter className="p-0 m-3">
         <div className="flex items-center w-full gap-x-3">
@@ -39,13 +26,14 @@ const renderFooterContent = ({ ticketLink, organiserContact }: EventCardProps) =
   }
 }
 
-const EventCard = (props: EventCardProps) => {
-  const eventDate = dayjs(props.dateTimeUtc);
+const EventCard = (props: Event) => {
+  const dateTimeString = `${props.Date}  ${props.StartTime}`;
+  const eventDate = dayjs(dateTimeString, 'YYYY-MM-DD HH:mm');
 
   return (
     <Card className="w-full flex flex-col h-full">
       <div className="flex-grow">
-        <CardHeader className={"p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra"} style={{ backgroundImage: `url('${getImageUrlFromS3Bucket(props.image)}')` }}>
+        <CardHeader className={"p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra"} style={{ backgroundImage: `url('${getImageUrlFromS3Bucket(props.ImageName)}')` }}>
           < div className="flex justify-center items-center bg-white w-[3.5rem] aspect-square m-3 rounded-lg" >
             <div className="text-center">
               <p className="font-bold text-xl text-black">{eventDate.date()}</p>
@@ -53,13 +41,13 @@ const EventCard = (props: EventCardProps) => {
             </div>
           </div >
         </CardHeader >
-        {props.tags && props.tags.map((t, index) => <Badge key={index} className="ml-3" variant={'eventStyle'}>{t}</Badge>)}
-        {props.eventTypes.map((et, index) => <Badge key={index} className="ml-3" variant={'eventType'}>{et}</Badge>)}
+        {props.Tags && props.Tags.map((t, index) => <Badge key={index} className="ml-3" variant={'eventStyle'}>{t}</Badge>)}
+        {props.EventTypes.map((et, index) => <Badge key={index} className="ml-3" variant={'eventType'}>{et}</Badge>)}
         <CardContent className="flex flex-col p-0 m-3 gap-y-2">
-          <CardTitle className="text-xl">{props.eventName}</CardTitle>
+          <CardTitle className="text-xl">{props.Title}</CardTitle>
           <div className="flex">
             <FaLocationDot className="mr-2" />
-            <p className="text-sm font-medium">{props.location}</p>
+            <p className="text-sm font-medium">{props.Location}</p>
           </div>
           <div className="flex">
             <FaCalendarDays className="mr-2" />
@@ -67,12 +55,12 @@ const EventCard = (props: EventCardProps) => {
           </div>
           <div className="flex">
             <FaMoneyBillWave className="mr-2" />
-            <p className="text-sm font-medium">{props.pricingInfo}</p>
+            <p className="text-sm font-medium">{props.Price}</p>
           </div>
           <div className="flex">
             <FaCircleUser className="mr-2" />
             <p className="text-sm font-medium">By&nbsp;</p>
-            <p className="text-sm font-semibold">{props.organiser}</p>
+            <p className="text-sm font-semibold">{props.Organiser}</p>
           </div>
         </CardContent>
       </div>

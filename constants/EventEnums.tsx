@@ -5,7 +5,7 @@ export enum EventTypeEnum {
   Choreography_Competition = "Choreography Competition"
 }
 
-export enum EventTagsEnum {
+export enum EventTagEnum {
   Popping = "Popping",
   Locking = "Locking",
   Hip_Hop = "Hip Hop",
@@ -14,4 +14,10 @@ export enum EventTagsEnum {
   Krump = "Krump",
   Vogue = "Vogue",
   All_Style = "All-style"
+}
+
+export enum EventStatusEnum {
+  Confirmed = "Confirmed",
+  Pending = "Pending",
+  Denied = "Denied"
 }
