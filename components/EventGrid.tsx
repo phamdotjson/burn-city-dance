@@ -1,9 +1,12 @@
 import EventCard from "./EventCard";
+import { Event } from "@/types/Event";
 import { sortEventsByDateTime } from "@/lib/utils";
-import { getConfirmedEvents } from "@/lib/db";
 
-const EventGrid = async () => {
-  const events = await getConfirmedEvents();
+export interface EventGridProps {
+  events: Event[];
+};
+
+const EventGrid = ({ events }: EventGridProps) => {
   const sortedEvents = sortEventsByDateTime(events);
 
   return (

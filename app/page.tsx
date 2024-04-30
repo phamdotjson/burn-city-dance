@@ -1,12 +1,17 @@
+export const dynamic = 'force-dynamic';
+
 import EventGrid from "@/components/EventGrid";
 import SearchBar from "@/components/SearchBar";
+import { getConfirmedEvents } from "@/lib/db";
 
-const page = () => {
+const page = async () => {
+  const events = await getConfirmedEvents();
+
   return (
     <div className="dark:bg-black">
       <div className="container ">
         <SearchBar />
-        <EventGrid />
+        <EventGrid events={events} />
       </div>
     </div>
 
