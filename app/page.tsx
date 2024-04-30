@@ -4,6 +4,7 @@ import { getConfirmedEvents } from "@/lib/db";
 
 const page = async () => {
   const events = await getConfirmedEvents();
+  console.log(events);
 
   return (
     <div className="dark:bg-black">

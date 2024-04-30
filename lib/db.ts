@@ -1,3 +1,5 @@
+"use server";
+
 import { EventStatusEnum } from "@/constants/EventEnums";
 import { Event } from "@/types/Event";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
