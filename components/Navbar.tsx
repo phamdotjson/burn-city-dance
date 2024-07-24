@@ -18,7 +18,7 @@ export default function Example() {
     <div className="relative overflow-hidden">
       <div className="absolute inset-0 bg-cover bg-center blur-[2px]" style={{ backgroundImage: "url('./hero.jpg')" }}></div>
       <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-      <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
+      <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-background via-transparent to-transparent"></div>
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -56,13 +56,13 @@ export default function Example() {
         </nav>
         <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
           <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  className="h-12 w-auto"
+                  src="https://www.cypherculture.org.au/logo.png"
                   alt=""
                 />
               </a>
@@ -82,7 +82,7 @@ export default function Example() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-foreground hover:bg-muted"
                     >
                       {item.name}
                     </a>
@@ -91,7 +91,7 @@ export default function Example() {
                 <div className="py-6">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-foreground hover:bg-muted"
                   >
                     Log in
                   </a>
@@ -120,20 +120,20 @@ export default function Example() {
             </div>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
               Burncity Street Dance Events
             </h1>
-            <p className="mt-6 text-md leading-8 text-gray-600 dark:text-gray-300">
+            <p className="mt-6 text-md leading-8 text-muted-foreground">
               The easiest way to find street dance events in Naarm. Find events, add them to calendar, buy tickets and host your own events 🙌
             </p>
             <div className="mt-6 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-foreground shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Find an event
               </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-50">
+              <a href="#" className="text-sm font-semibold leading-6 text-foreground">
                 Host an event <span aria-hidden="true">→</span>
               </a>
             </div>

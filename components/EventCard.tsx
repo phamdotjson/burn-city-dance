@@ -11,7 +11,7 @@ const renderFooterContent = ({ TicketLink, OrganiserContact }: Event) => {
     return (
       <CardFooter className="p-0 m-3">
         <div className="flex items-center w-full gap-x-3">
-          <Button variant={"default"} className="w-full" size="sm"><FaTicket className="mr-2 h-3.5 w-3.5" />Buy Tickets</Button>
+          <Button className="w-full" size="sm"><FaTicket className="mr-2 h-3.5 w-3.5" />Buy Tickets</Button>
         </div>
       </CardFooter>
     )
@@ -19,7 +19,7 @@ const renderFooterContent = ({ TicketLink, OrganiserContact }: Event) => {
     return (
       <CardFooter className="p-0 m-3">
         <div className="flex items-center w-full gap-x-3">
-          <Button variant={"default"} className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:text-gray-50" size="sm"><FaInstagram className="mr-2 h-3.5 w-3.5" />Contact Organiser</Button>
+          <Button className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-foreground" size="sm"><FaInstagram className="mr-2 h-3.5 w-3.5" />Contact Organiser</Button>
         </div>
       </CardFooter>
     )
@@ -34,15 +34,15 @@ const EventCard = (props: Event) => {
     <Card className="w-full flex flex-col h-full">
       <div className="flex-grow">
         <CardHeader className={"p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra"} style={{ backgroundImage: `url('${getImageUrlFromS3Bucket(props.ImageName)}')` }}>
-          < div className="flex justify-center items-center bg-white w-[3.5rem] aspect-square m-3 rounded-lg" >
+          < div className="flex justify-center items-center bg-background w-[3.5rem] aspect-square m-3 rounded-lg" >
             <div className="text-center">
-              <p className="font-bold text-xl text-black">{eventDate.date()}</p>
-              <p className="text-xs text-red-600 font-semibold">{eventDate.format('MMM').toUpperCase()}</p>
+              <p className="font-bold text-xl text-card-foreground">{eventDate.date()}</p>
+              <p className="text-xs text-red-500 font-semibold">{eventDate.format('MMM').toUpperCase()}</p>
             </div>
           </div >
         </CardHeader >
-        {props.Tags && props.Tags.map((t, index) => <Badge key={index} className="ml-3" variant={'eventStyle'}>{t}</Badge>)}
-        {props.EventTypes && props.EventTypes.map((et, index) => <Badge key={index} className="ml-3" variant={'eventType'}>{et}</Badge>)}
+        {props.Tags && props.Tags.map((t, index) => <Badge key={index} className="ml-3">{t}</Badge>)}
+        {props.EventTypes && props.EventTypes.map((et, index) => <Badge key={index} className="ml-3">{et}</Badge>)}
         <CardContent className="flex flex-col p-0 m-3 gap-y-2">
           <CardTitle className="text-xl">{props.Title}</CardTitle>
           <div className="flex">

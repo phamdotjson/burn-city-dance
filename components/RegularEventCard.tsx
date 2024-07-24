@@ -19,7 +19,7 @@ const RegularEventList = ({ dayOfWeek, date, events }: RegularEventCardProps) =>
           <p className="text-sm font-medium leading-none pb-3">
             {event.Title}
           </p>
-          <div className="flex text-sm text-neutral-500 dark:text-neutral-400">
+          <div className="flex text-sm text-foreground">
             <FaClock className="mr-3 my-auto" />
             <p className="my-auto"> {event.Time}</p>
             <FaLocationDot className="mx-3 my-auto" />
@@ -35,7 +35,7 @@ const RegularEventList = ({ dayOfWeek, date, events }: RegularEventCardProps) =>
         </div>
         <Button variant="outline" size="sm" className="mt-4 md:mt-0"><FaCalendarDays className="mr-2 h-3.5 w-3.5" />Add To Calendar</Button>
       </div>
-      <hr className="border-t border-gray-800 my-4" />
+      <hr className="border-t my-4" />
     </div>
   ))
 
