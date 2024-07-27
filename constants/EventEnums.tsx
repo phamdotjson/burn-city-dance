@@ -1,10 +1,3 @@
-export enum EventTypeEnum {
-  Battle = "Battle",
-  Workshop = "Workshop",
-  Showcase = "Showcase",
-  Choreography_Competition = "Choreography Competition"
-}
-
 export enum EventTagEnum {
   Popping = "Popping",
   Locking = "Locking",
@@ -13,7 +6,11 @@ export enum EventTagEnum {
   House = "House",
   Krump = "Krump",
   Vogue = "Vogue",
-  All_Style = "All-style"
+  All_Style = "All-style",
+  Battle = "Battle",
+  Workshop = "Workshop",
+  Showcase = "Showcase",
+  Choreography_Competition = "Choreography Competition"
 }
 
 export enum EventStatusEnum {

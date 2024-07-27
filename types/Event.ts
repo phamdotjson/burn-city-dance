@@ -1,4 +1,4 @@
-import { EventTagEnum, EventTypeEnum } from "@/constants/EventEnums";
+import { EventTagEnum } from "@/constants/EventEnums";
 
 export type Event = {
   Date: string;
@@ -7,7 +7,6 @@ export type Event = {
   Title: string;
   Description: string;
   Location: string;
-  EventTypes: EventTypeEnum[];
   Tags: EventTagEnum[];
   EndTime: string;
   ImageName: string;

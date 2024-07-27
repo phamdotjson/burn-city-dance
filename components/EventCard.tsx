@@ -42,7 +42,6 @@ const EventCard = (props: Event) => {
           </div >
         </CardHeader >
         {props.Tags && props.Tags.map((t, index) => <Badge key={index} className="ml-3">{t}</Badge>)}
-        {props.EventTypes && props.EventTypes.map((et, index) => <Badge key={index} className="ml-3">{et}</Badge>)}
         <CardContent className="flex flex-col p-0 m-3 gap-y-2">
           <CardTitle className="text-xl">{props.Title}</CardTitle>
           <div className="flex">

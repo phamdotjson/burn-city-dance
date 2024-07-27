@@ -28,7 +28,7 @@ export const getConfirmedEvents = async () => {
     ExpressionAttributeValues: {
       ':statusVal': EventStatusEnum.Confirmed
     },
-    ProjectionExpression: '#date, StartTime, EventID, Title, Description, #location, EventTypes, Tags, EndTime, ImageName, Price, TicketLink, Organiser, OrganiserContact, #status'
+    ProjectionExpression: '#date, StartTime, EventID, Title, Description, #location, Tags, EndTime, ImageName, Price, TicketLink, Organiser, OrganiserContact, #status'
   };
 
   const queryCommand = new QueryCommand(params);
@@ -36,7 +36,6 @@ export const getConfirmedEvents = async () => {
   try {
     const data = await dbClient.send(queryCommand);
     const events = data.Items?.map((item: any) => {
-      item.EventTypes = item.EventTypes ? Array.from(item.EventTypes.values()) : [];
       item.Tags = item.Tags ? Array.from(item.Tags.values()) : [];
       return item;
     });
