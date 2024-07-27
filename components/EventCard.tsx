@@ -34,9 +34,9 @@ const EventCard = (props: Event) => {
     <Card className="w-full flex flex-col h-full">
       <div className="flex-grow">
         <CardHeader className={"p-0 m-3 rounded-lg border bg-cover bg-center aspect-square shadow-inner border-ra"} style={{ backgroundImage: `url('${getImageUrlFromS3Bucket(props.ImageName)}')` }}>
-          < div className="flex justify-center items-center bg-background w-[3.5rem] aspect-square m-3 rounded-lg" >
+          < div className="flex justify-center items-center bg-foreground w-[3.5rem] aspect-square m-3 rounded-lg" >
             <div className="text-center">
-              <p className="font-bold text-xl text-card-foreground">{eventDate.date()}</p>
+              <p className="font-bold text-xl text-card-background">{eventDate.date()}</p>
               <p className="text-xs text-red-500 font-semibold">{eventDate.format('MMM').toUpperCase()}</p>
             </div>
           </div >
